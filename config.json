@@ -1,0 +1,12 @@
+{
+    "lock_file": "/home/jlafourc/.idelis-lock",
+    "api_url": "https://api.idelis.fr/GetStopMonitoring",
+    "api_code": "LAGUTS_1",
+    "api_ligne": "5",
+    "api_next": 3,
+
+    "display_start_hour": 6,
+    "display_start_minute": 30,
+    "display_end_hour": 8,
+    "display_end_minute": 30
+}
