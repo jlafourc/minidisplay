@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MiniDisplay Simulator</title>
+    <link rel="stylesheet" href="/static/assets/styles.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1>MiniDisplay Simulator</h1>
+      <p class="subtitle">Configure display hours and preview frames in-browser.</p>
+    </header>
+    <main class="container">
+      {% block content %}{% endblock %}
+    </main>
+    <footer class="footer">
+      <small>Powered by FastAPI &amp; HTMX • Designed for Raspberry Pi Zero</small>
+    </footer>
+  </body>
+</html>

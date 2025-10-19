@@ -1,0 +1,14 @@
+{% if image_url %}
+  <div class="preview-meta">
+    <p>
+      Mode: <strong>{{ result.mode }}</strong>
+      {% if result.mode == 'active' and result.arrival_text %}
+        • Next arrival: <strong>{{ result.arrival_text }}</strong>
+      {% endif %}
+    </p>
+    <p class="timestamp">Generated at {{ result.generated_at.strftime('%H:%M:%S') }}</p>
+  </div>
+  <img src="{{ image_url }}" alt="Display preview" class="preview-image" />
+{% else %}
+  <p class="placeholder">No image produced. Verify configuration and try again.</p>
+{% endif %}

@@ -10,6 +10,12 @@ requests>=2.25.0
 # Image processing for e-ink display
 Pillow>=8.0.0
 
+# Web UI and templating (FastAPI + HTMX interface)
+fastapi>=0.110.0,<1.0.0
+uvicorn>=0.23.0,<0.30.0
+jinja2>=3.1.0
+aiofiles>=23.0.0
+
 # Development and testing dependencies
 pytest>=6.0.0
 pytest-mock>=3.6.0

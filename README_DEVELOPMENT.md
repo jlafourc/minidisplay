@@ -69,6 +69,16 @@ INKY_DISPLAY_AVAILABLE=false pipenv run python -m minidisplay --use-mock
 pipenv run python -m minidisplay --use-mock --mock-time 07:30
 ```
 
+## 🌐 Interface Web (FastAPI + HTMX)
+
+Lancer l'interface de simulation et de configuration :
+
+```bash
+pipenv run uvicorn minidisplay.web.app:app --host 0.0.0.0 --port 8000
+```
+
+> 💡 Sur Raspberry Pi Zero, évitez `--reload` pour préserver les ressources. Accédez ensuite à `http://<adresse-du-pi>:8000` pour ajuster l'heure mock et les fenêtres d'affichage, puis visualiser l'image générée en direct.
+
 ## 📁 Structure du Projet
 
 ```
@@ -100,8 +110,9 @@ mini-display/
 ├── resources/
 │   └── generated/            # Sorties rendues localement
 ├── tests/
-│   └── datasources/
-│       └── test_manager.py
+│   ├── datasources/
+│   │   └── test_manager.py
+│   └── test_simulator.py
 ├── docs/
 │   └── ...                   # Documentation produit & technique
 ├── requirements.txt

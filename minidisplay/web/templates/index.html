@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+  <form
+    class="config-form"
+    hx-post="/simulate"
+    hx-target="#preview"
+    hx-swap="innerHTML"
+  >
+    <div class="form-grid">
+      <label>
+        <span>Mock time (HH:MM)</span>
+        <input type="time" name="mock_time" placeholder="07:30" />
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" name="use_mock" checked />
+        <span>Use mock data</span>
+      </label>
+
+      <label>
+        <span>Display start hour</span>
+        <input
+          type="number"
+          name="start_hour"
+          min="0"
+          max="23"
+          value="{{ config['display_start_hour'] }}"
+          required
+        />
+      </label>
+
+      <label>
+        <span>Display start minute</span>
+        <input
+          type="number"
+          name="start_minute"
+          min="0"
+          max="59"
+          value="{{ config['display_start_minute'] }}"
+          required
+        />
+      </label>
+
+      <label>
+        <span>Display end hour</span>
+        <input
+          type="number"
+          name="end_hour"
+          min="0"
+          max="23"
+          value="{{ config['display_end_hour'] }}"
+          required
+        />
+      </label>
+
+      <label>
+        <span>Display end minute</span>
+        <input
+          type="number"
+          name="end_minute"
+          min="0"
+          max="59"
+          value="{{ config['display_end_minute'] }}"
+          required
+        />
+      </label>
+    </div>
+
+    <button type="submit" class="primary">Render Preview</button>
+  </form>
+</section>
+
+<section class="panel preview" id="preview">
+  <p class="placeholder">Submit the form to generate a preview.</p>
+</section>
+{% endblock %}

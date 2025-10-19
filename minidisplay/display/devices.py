@@ -84,3 +84,7 @@ class VirtualDisplay(Display):
             print(f"Image saved as {self._filename}")
         else:
             print("No image set to display.")
+
+    @property
+    def output_path(self) -> Path:
+        return self._filename

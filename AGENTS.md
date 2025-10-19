@@ -6,8 +6,10 @@ Use this guide before contributing so display updates remain predictable and eas
 - `minidisplay/cli.py` hosts the command entry point; `idelis-phat.py` now delegates to it for backward compatibility.
 - `minidisplay/datasources/` contains `base.py`, `idelis.py`, and `manager.py` that normalize upstream feeds.
 - `minidisplay/display/` groups `devices.py`, `models.py`, and `renderer.py` responsible for composing frames; horizontal layouts allocate space via `width_percent` values that must sum to ≤100, and elements align inside their block using `horizontal_align`/`vertical_align`.
+- `minidisplay/simulator.py` shares rendering helpers consumed by both the CLI and web UI.
 - `minidisplay/config/` bundles `defaults.json` plus loaders; static icons live in `minidisplay/resources/`, while renders go to `resources/generated/`.
-- `tests/datasources/` mirrors the data-source layer; follow the package structure when adding suites.
+- `minidisplay/web/` houses the FastAPI + HTMX interface (templates, static assets, app).
+- `tests/datasources/` mirrors the data-source layer; follow the package structure when adding suites, and `tests/test_simulator.py` covers shared rendering helpers.
 - Keep secrets in `.env`; only checked-in config lives under `minidisplay/config/`.
 
 ## Build, Test, and Development Commands
@@ -16,6 +18,7 @@ Use this guide before contributing so display updates remain predictable and eas
 - `pipenv run python -m minidisplay --use-mock [--mock-time HH:MM]` exercises the stack with generated fixtures.
 - `pipenv run pytest -v` executes the unit suite; ensure it passes before pushing.
 - `pipenv run pytest --cov=minidisplay.datasources --cov-report=html` produces coverage insights during refactors.
+- `pipenv run uvicorn minidisplay.web.app:app --host 0.0.0.0 --port 8000` launches the HTMX-based simulator (avoid `--reload` on Pi Zero).
 
 ## Coding Style & Naming Conventions
 - Follow PEP 8 with four-space indentation and descriptive, verb-driven names.

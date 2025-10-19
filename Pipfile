@@ -10,6 +10,10 @@ font-hanken-grotesk = "*"
 font-fredoka-one = "*"
 pillow = "*"
 inky = "*"
+fastapi = "*"
+uvicorn = "*"
+jinja2 = "*"
+aiofiles = "*"
 
 [dev-packages]
 
