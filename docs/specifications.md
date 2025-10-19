@@ -15,7 +15,7 @@ This project displays real-time bus schedules from the Idelis network on an Inky
 *   The system shall fetch data from the Idelis API.
 *   The system shall display the next bus arrival time.
 *   The system shall display a standby message outside of active hours.
-*   The system shall be configurable through a `config.json` file.
+*   The system shall be configurable through a JSON file (default settings live in `minidisplay/config/defaults.json`).
 
 ## 4. Non-Functional Requirements
 
@@ -29,6 +29,8 @@ This project displays real-time bus schedules from the Idelis network on an Inky
 
 ## 6. UI/UX Requirements
 
-*   **Alignment:** The bus icon and the arrival time text shall be vertically centered on the display. The text should be positioned to the right of the icon with a small margin.
+*   **Alignment:** In horizontal arrangements, the bus icon and the arrival time text shall be vertically aligned to their middle. The entire group of horizontally arranged elements shall be vertically centered on the display. The text should be positioned to the right of the icon with a consistent margin.
 *   **Icon Size:** The bus icon's height should be scaled to 40 pixels, maintaining its aspect ratio.
 *   **Font Size:** The arrival time text should have a font size of 24 pixels.
+*   **Padding:** All display elements (icons, text) shall have a consistent padding of 5 pixels from the edges of the display.
+*   **Horizontal Spacing:** In horizontal arrangements, elements should be grouped and centered, with consistent spacing between them and from the display's padding.

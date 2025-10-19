@@ -1,0 +1,20 @@
+# Core dependencies for Mini Display Family Information System
+# These are the minimum required packages for the data source abstraction layer
+
+# JSON path navigation library (used in original codebase)
+nob>=0.3.0
+
+# HTTP requests for API integration
+requests>=2.25.0
+
+# Image processing for e-ink display
+Pillow>=8.0.0
+
+# Development and testing dependencies
+pytest>=6.0.0
+pytest-mock>=3.6.0
+
+# Optional: For enhanced display features (not currently used but may be needed for future stories)
+# requests-cache>=1.0.0  # For API response caching
+# python-dotenv>=0.19.0  # For environment variable management
+# schedule>=1.1.0      # For time-based scheduling (future story)
