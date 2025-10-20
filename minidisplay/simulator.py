@@ -82,16 +82,17 @@ def _build_layouts(icon_path: Path) -> tuple[DisplayLayout, DisplayLayout]:
 
 
 def _get_arrival_time(payload: Optional[Any]) -> str:
-    if payload and getattr(payload, "find", None):
-        passages = payload.find("passages")
-        if passages and getattr(passages, "__getitem__", None):
-            try:
-                first = passages[0]
-                arrivee = first.arrivee[:]
-                return arrivee or "A l'arrêt"
-            except Exception:  # pragma: no cover - best-effort defensive path
-                pass
-    return "Aucun passage"
+    try:
+        if not payload:
+            return "Aucun passage"
+        passages = payload.passages  # type: ignore[attr-defined]
+        if not passages:
+            return "Aucun passage"
+        first = passages[0]
+        arrivee = first.arrivee[:]  # type: ignore[attr-defined]
+        return arrivee or "A l'arrêt"
+    except Exception:  # pragma: no cover - best-effort defensive path
+        return "Aucun passage"
 
 
 def run_simulation(
